@@ -2,7 +2,7 @@
 # coding=utf-8
 # @Author: Lim Mingjie, Kenneth
 # @Date:   2015-12-20T04:00:09-05:00
-# @Last modified time: 2016-05-30T17:26:15-04:00
+# @Last modified time: 2016-05-30T17:59:21-04:00
 # @License: MIT
 
 from __future__ import absolute_import
@@ -15,7 +15,7 @@ import numpy as np
 import sklearn.base as sk_base
 import sklearn.feature_extraction.text as sk_text
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 
 class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):

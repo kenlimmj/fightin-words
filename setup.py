@@ -2,7 +2,7 @@
 # coding=utf-8
 # @Author: Lim Mingjie, Kenneth <Astrianna>
 # @Date:   2016-05-22T20:52:04-04:00
-# @Last modified time: 2016-05-30T17:57:10-04:00
+# @Last modified time: 2016-05-30T17:58:06-04:00
 # @License: MIT
 
 from setuptools import setup

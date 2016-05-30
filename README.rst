@@ -61,7 +61,6 @@ Monroe, B. L., Colaresi, M. P., & Quinn, K. M. (2008). Fightin'words: Lexical fe
     year={2008},
     publisher={SPM-PMSAPSA}
   }
-```
 
 LICENSE
 -------

@@ -2,10 +2,10 @@
 # coding=utf-8
 # @Author: Lim Mingjie, Kenneth <Astrianna>
 # @Date:   2016-05-22T20:52:04-04:00
-# @Last modified time: 2016-05-30T17:27:35-04:00
+# @Last modified time: 2016-05-30T17:43:54-04:00
 # @License: MIT
 
-from distutils.core import setup
+from setuptools import setup
 import codecs
 
 # Patch distutils if it can't cope with the

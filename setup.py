@@ -2,7 +2,7 @@
 # coding=utf-8
 # @Author: Lim Mingjie, Kenneth <Astrianna>
 # @Date:   2016-05-22T20:52:04-04:00
-# @Last modified time: 2016-05-30T18:01:11-04:00
+# @Last modified time: 2016-05-30T18:06:15-04:00
 # @License: MIT
 
 from setuptools import setup
@@ -18,7 +18,7 @@ if version < '2.2.3':
 
 
 def get_version(filename):
-    with open('filename') as f:
+    with open(filename) as f:
         for line in f:
             if line.startswith('__version__'):
                 return eval(line.split('=')[-1])
@@ -27,6 +27,7 @@ def get_version(filename):
 def read(filename):
     with codecs.open(filename, 'r', 'utf-8') as f:
         return f.read()
+
 
 setup(
     install_requires=['scikit-learn', 'numpy'],

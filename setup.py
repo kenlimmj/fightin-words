@@ -2,7 +2,7 @@
 # coding=utf-8
 # @Author: Lim Mingjie, Kenneth <Astrianna>
 # @Date:   2016-05-22T20:52:04-04:00
-# @Last modified time: 2016-05-30T17:58:06-04:00
+# @Last modified time: 2016-05-30T18:01:11-04:00
 # @License: MIT
 
 from setuptools import setup
@@ -47,10 +47,10 @@ setup(
     ],
     description='An implementation of Monroe et. al\'s Fightin\' Words Analysis',
     long_description=read('README.rst'),
-    download_url='https://github.com/kenlimmj/fightin-words/tarball/1.0.0',
+    download_url='https://github.com/kenlimmj/fightin-words/tarball/' + get_version('fightin-words/fightin-words.py'),
     keywords=['nlp', 'fightin words', 'fightin', 'words'],
     name='fightin-words',
     packages=['fightin-words'],
     url='https://github.com/kenlimmj/fightin-words',
-    version='1.0.0'
+    version=get_version('fightin-words/fightin-words.py')
 )

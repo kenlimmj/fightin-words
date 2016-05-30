@@ -49,7 +49,7 @@ The `original implementation <https://github.com/jmhessel/FightingWords>`_ by Ja
 
 Monroe, B. L., Colaresi, M. P., & Quinn, K. M. (2008). Fightin'words: Lexical feature selection and evaluation for identifying the content of political conflict. *Political Analysis*, 16(4), 372–403.
 
-.. code:: bibtex
+.. code:: tex
 
   @article{monroe2008fightin,
     title={Fightin' words: Lexical feature selection and evaluation for identifying the content of political conflict},

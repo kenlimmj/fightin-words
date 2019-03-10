@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # coding=utf-8
-# @Author: Lim Mingjie, Kenneth
-# @Date:   2015-12-20T04:00:09-05:00
-# @Last modified time: 2016-05-30T18:06:51-04:00
-# @License: MIT
 
 from __future__ import absolute_import
 from __future__ import division
@@ -15,8 +11,7 @@ import numpy as np
 import sklearn.base as sk_base
 import sklearn.feature_extraction.text as sk_text
 
-__version__ = '1.0.4'
-
+__version__ = '1.0.5'
 
 class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
     """Compute Monroe et. al's [Monroe2008] fightin' words result.
@@ -30,17 +25,12 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
     prior: float or list, default=0.01
 
         Starting Dirichlet prior that is smoothed over the input. If a float is
-        provided, a uniform distribution is created over the vocabulary extracted
-        from the corpora. If a list is provided, it is assumed that the user will
-        _also_ be passing in their own count vectorizer, and that the dimensionality
-        of both items match each other.
+        provided, a uniform distribution is created over the vocabulary extracted from the corpora. If a list is provided, it is assumed that the user will _also_ be passing in their own count vectorizer, and that the dimensionality of both items match each other.
 
     cv: sklearn.feature_extraction.text.CountVectorizer or
         sklearn.feature_extraction.text.TfidfVectorizer or None, optional
 
-        The vectorizer used to construct the word-occurrence frequency dictionary.
-        If not specified, uses the default parameters for a naive implementation of
-        scikit-learn's CountVectorizer.
+        The vectorizer used to construct the word-occurrence frequency dictionary. If not specified, uses the default parameters for a naive implementation of scikit-learn's `CountVectorizer`.
 
     References
     ----------
@@ -82,25 +72,25 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
         """
         # type Sequence[str, str] -> List[Sequence[str, float]]
 
-        # Compute Bag-of-words Model
+        # Compute Bag-of-words Model.
         counts = self.cv.fit_transform([' '.join(X)]).toarray()
         vocab_size = len(self.cv.vocabulary_)
 
-        # Create a reverse-LUT to remap the vocabulary to human-readable words
+        # Create a reverse-LUT to remap the vocabulary to human-readable words.
         index_to_term = {v: k for k, v in self.cv.vocabulary_.items()}
 
         if isinstance(self.prior, float):
             # Generate uniform prior distribution
-            self.priors = np.array([self.prior for i in xrange(vocab_size)])
+            self.priors = [self.prior for i in xrange(vocab_size)]
         else:
-            # Guaranteed to be dealing with a list in this block because the class
-            # constructor would have caught any bad types at initialization
+            # Guaranteed to be dealing with a list in this block because the
+            # class constructor would have caught bad types at initialization.
             if (len(self.prior) == vocab_size):
                 self.priors = self.prior
             else:
                 raise AssertionError(self.prior, 'Number of priors must match vocabulary size')
 
-        z_scores = np.empty(self.priors.shape[0])
+        z_scores = np.empty(np.array(self.priors).shape[0])
         count_matrix = np.empty([2, vocab_size], dtype=np.float32)
 
         count_matrix[0, :] = np.sum(counts[:len(X[0]), :], axis=0)
@@ -112,14 +102,14 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
         n2 = np.sum(count_matrix[1, :], dtype=np.float32)
 
         for i in xrange(vocab_size):
-            # Compute delta
+            # Compute delta.
             term1 = np.log((count_matrix[0, i] + self.priors[i]) / (n1 + a0 - count_matrix[0, i] - self.priors[i]))
             term2 = np.log((count_matrix[1, i] + self.priors[i]) / (n2 + a0 - count_matrix[1, i] - self.priors[i]))
             delta = term1 - term2
 
-            # Compute variance and standardize the z-score
+            # Compute variance and standardize the z-score.
             var = 1 / (count_matrix[0, i] + self.priors[i]) + 1 / (count_matrix[1, i] + self.priors[i])
             z_scores[i] = delta / np.sqrt(var)
 
-        # Return the results in descending order
+        # Return the results in descending order.
         return [(index_to_term[i], z_scores[i]) for i in np.argsort(z_scores)]

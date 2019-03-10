@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # coding=utf-8
-# @Author: Lim Mingjie, Kenneth <Astrianna>
-# @Date:   2016-05-22T20:52:04-04:00
-# @Last modified time: 2016-05-30T18:06:15-04:00
-# @License: MIT
 
 from setuptools import setup
 import codecs

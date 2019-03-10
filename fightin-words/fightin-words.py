@@ -25,12 +25,17 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
     prior: float or list, default=0.01
 
         Starting Dirichlet prior that is smoothed over the input. If a float is
-        provided, a uniform distribution is created over the vocabulary extracted from the corpora. If a list is provided, it is assumed that the user will _also_ be passing in their own count vectorizer, and that the dimensionality of both items match each other.
+        provided, a uniform distribution is created over the vocabulary
+        extracted from the corpora. If a list is provided, it is assumed that
+        the user will _also_ be passing in their own count vectorizer, and that
+        the dimensionality of both items match each other.
 
     cv: sklearn.feature_extraction.text.CountVectorizer or
         sklearn.feature_extraction.text.TfidfVectorizer or None, optional
 
-        The vectorizer used to construct the word-occurrence frequency dictionary. If not specified, uses the default parameters for a naive implementation of scikit-learn's `CountVectorizer`.
+        The vectorizer used to construct the word-occurrence frequency
+        dictionary. If not specified, uses the default parameters for a naive
+        implementation of scikit-learn's `CountVectorizer`.
 
     References
     ----------

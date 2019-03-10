@@ -3,7 +3,7 @@ A scikit-learn compliant implementation of Monroe et al.'s  Fightin' Words analy
 Features
 --------
 
-- Computes a `(word, z-score)` result for a pair of text corpora.
+- Computes a :code:`(word, z-score)` result for a pair of text corpora.
 - Works with scikit-learn estimators and pipelines.
 
 Installation
@@ -19,7 +19,7 @@ Distributed via PyPI:
 Usage
 -----
 
-`fightin-words` implements `FWExtractor`, which inherits from the scikit-learn `BaseEstimator` and `TransformerMixin`.
+:code:`fightin-words` implements :code:`FWExtractor`, which inherits from the scikit-learn :code:`BaseEstimator` and :code:`TransformerMixin`.
 
 Example:
 
@@ -38,9 +38,9 @@ Example:
 
   fw.FWExtractor(prior, cv).fit_transform([l1, l2])
 
-Note that to maintain parity with scikit-learn conventions, `fit_transform` takes in *one* variable (the canonical `X` for samples/features). Therefore the two strings to be compared should be marshaled into a single sequence-type (list or tuple) variable.
+Note that to maintain parity with scikit-learn conventions, :code:`fit_transform` takes in *one* variable (the canonical `X` for samples/features). Therefore the two strings to be compared should be marshaled into a single sequence-type (list or tuple) variable.
 
-`prior` and `cv` do not need to be specified. `prior` defaults to 0.01, and `cv` defaults to a naively initialized scikit-learn `CountVectorizer`. If a list of precomputed priors is specified, it is expected that the user also passes in a vectorizer that is responsible for producing a vocabulary whose dimensionality matches the precomputed priorsâ€”we do not check for that.
+:code:`prior` and :code:`cv` do not need to be specified. :code:`prior` defaults to 0.01, and :code:`cv` defaults to a naively initialized scikit-learn :code:`CountVectorizer`. If a list of precomputed priors is specified, it is expected that the user also passes in a vectorizer that is responsible for producing a vocabulary whose dimensionality matches the precomputed priors—we do not check for that.
 
 Credits
 -------
@@ -66,7 +66,7 @@ LICENSE
 -------
 
 The MIT License (MIT)
-Copyright (c) 2016 Kenneth Lim
+Copyright (c) 2019 Kenneth Lim
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

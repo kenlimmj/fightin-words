@@ -86,7 +86,7 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
 
         if isinstance(self.prior, float):
             # Generate uniform prior distribution
-            self.priors = [self.prior for i in xrange(vocab_size)]
+            self.priors = [self.prior for i in range(vocab_size)]
         else:
             # Guaranteed to be dealing with a list in this block because the
             # class constructor would have caught bad types at initialization.
@@ -106,7 +106,7 @@ class FWExtractor(sk_base.BaseEstimator, sk_base.TransformerMixin):
         n1 = np.sum(count_matrix[0, :], dtype=np.float32)
         n2 = np.sum(count_matrix[1, :], dtype=np.float32)
 
-        for i in xrange(vocab_size):
+        for i in range(vocab_size):
             # Compute delta.
             term1 = np.log((count_matrix[0, i] + self.priors[i]) / (n1 + a0 - count_matrix[0, i] - self.priors[i]))
             term2 = np.log((count_matrix[1, i] + self.priors[i]) / (n2 + a0 - count_matrix[1, i] - self.priors[i]))

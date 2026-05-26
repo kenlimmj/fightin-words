@@ -19,13 +19,13 @@ Distributed via PyPI:
 Usage
 -----
 
-:code:`fightin-words` implements :code:`FWExtractor`, which inherits from the scikit-learn :code:`BaseEstimator` and :code:`TransformerMixin`.
+:code:`fightin_words` implements :code:`FWExtractor`, which inherits from the scikit-learn :code:`BaseEstimator` and :code:`TransformerMixin`.
 
 Example:
 
 .. code:: python
 
-  import fightin-words as fw
+  import fightin_words as fw
   import sklearn.feature_extraction.text as sk_text
 
   # Strings/text corpora to be compared
@@ -40,7 +40,7 @@ Example:
 
 Note that to maintain parity with scikit-learn conventions, :code:`fit_transform` takes in *one* variable (the canonical `X` for samples/features). Therefore the two strings to be compared should be marshaled into a single sequence-type (list or tuple) variable.
 
-:code:`prior` and :code:`cv` do not need to be specified. :code:`prior` defaults to 0.01, and :code:`cv` defaults to a naively initialized scikit-learn :code:`CountVectorizer`. If a list of precomputed priors is specified, it is expected that the user also passes in a vectorizer that is responsible for producing a vocabulary whose dimensionality matches the precomputed priors—we do not check for that.
+:code:`prior` and :code:`cv` do not need to be specified. :code:`prior` defaults to 0.01, and :code:`cv` defaults to a naively initialized scikit-learn :code:`CountVectorizer`. If a list of precomputed priors is specified, it is expected that the user also passes in a vectorizer that is responsible for producing a vocabulary whose dimensionality matches the precomputed priorsï¿½we do not check for that.
 
 Credits
 -------

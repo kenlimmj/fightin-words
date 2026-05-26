@@ -44,10 +44,10 @@ setup(
     ],
     description='An implementation of Monroe et. al\'s Fightin\' Words Analysis',
     long_description=read('README.rst'),
-    download_url='https://github.com/kenlimmj/fightin-words/tarball/' + get_version('fightin-words/fightin-words.py'),
+    download_url='https://github.com/kenlimmj/fightin-words/tarball/' + get_version('fightin_words/fightin_words.py'),
     keywords=['nlp', 'fightin words', 'fightin', 'words'],
     name='fightin-words',
-    packages=['fightin-words'],
+    packages=['fightin_words'],
     url='https://github.com/kenlimmj/fightin-words',
-    version=get_version('fightin-words/fightin-words.py')
+    version=get_version('fightin_words/fightin_words.py')
 )
